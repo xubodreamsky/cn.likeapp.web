@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LIKE</title>
+<meta name="KeyWords" content="喜欢" />
+<meta name="description" content="喜欢的人，喜欢的事儿，不同的LIKE" />
+<meta name="HandheldFriendly" content="true">
+<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/animate.css" type="text/css" />
+<script src="assets/js/jquery-latest.min.js" type="text/javascript"></script>
+<meta name="viewport" content="width=440, user-scalable=no" />
+<meta name="apple-itunes-app" content="app-id=722634039, app-argument=http://www.likeapp.cn">
+<link rel="icon" href="assets/images/favicon.png" type="image/png" />
+<script src="assets/js/visible.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function() {
+		$(window).bind("scroll", function(event) {
+			$("#download:in-viewport").addClass("animated pulse");
+		});
+		setTimeout(function() {
+			$('#showcase').fadeOut();
+		}, 64000);
+	});
+	$(function() {
+		$("#fieldEmail").on('input', function(e) {
+			if ($(this).val() == "") {
+				$("#updates").removeClass("success").removeClass("error");
+			}
+		});
+		$('#updates').submit(
+				function(e) {
+					e.preventDefault();
+					$.getJSON(this.action + "?callback=?", $(this).serialize(),
+							function(data) {
+								if (data.Status === 400) {
+									$("#updates").addClass("error")
+											.removeClass("success");
+								} else { // 200
+									$("#updates").addClass("success")
+											.removeClass("error");
+								}
+							});
+				});
+	});
+</script>
+</head>
+<body>
+	<section id="top">
+		<div class="hero-cover"></div>
+		<div id="nav">
+			<div class="inside">
+				<div id="logo">
+					<a href="/"> <img src="assets/images/logo.png" width="36px" height="32px"/>
+						<h1 class="heiti">LIKE</h1>
+					</a>
+				</div>
+				<ul class="nav">
+					<li class="download"><a
+						href="https://itunes.apple.com/us/app/skim-for-iphone/xxxx"
+						target="_blank"><font class="yahei">下载</font><font class="heiti">LIKE</font></a></li>
+					<li class="mobile-hide"><a href="about" class="yahei">关于我们</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="lower">
+			<div class="inner">
+				<div class="animated fadeIn">
+					<h2><font class="yahei">记录和分享</font><font class="heiti">LIKE</font><font class="yahei">的一切</font></h2>
+					<h3 class="yahei">每天的生活都是一次不经意的旅行，</h3>
+					<h3 class="yahei">跟喜欢的人，做喜欢的事</h3>
+				</div>
+			</div>
+		</div>
+		<div id="iphone">
+			<div class="shadow-wrap">
+				<img src="assets/images/iphone-shadow.png" class="shadow" />
+			</div>
+			<img src="assets/images/iphone-daki.png" alt="Like for iPhone"
+				class="phone" />
+			<!-- <video autoplay preload="auto" width="250" height="444"
+				name="showcase" id="showcase">
+				<source src="assets/video/iphone-hero.mp4" type="video/mp4" />
+				<source src="assets/video/iphone-hero.ogv" type="video/ogg" />
+				<source src="assets/video/iphone-hero.webm" type="video/webm" /> 
+			</video>-->
+		</div>
+	</section>
+	<section id="content">
+		<div class="inner">
+			<h2 class="dark yahei">
+				和喜欢的朋友分享，<br />
+				关注感兴趣的人和事。<br />
+			</h2>
+			<p style="margin: 0 auto; font-size:18px;"><font class="heiti">LIKE</font><font class="yahei">可以让你方便的分享图片、视频... </font></p>
+			<p style="margin: 0 auto; font-size:18px;" class="yahei">认识好友的朋友，关注有趣的人，</p>
+			<!-- <p style="margin: 0 auto;"><font class="yahei">也可以关注其他有趣的</font><font class="heiti">LIKE玩家。</font></p> -->
+			<p style="margin: 0 auto; font-size:18px;"><font class="yahei">方便的进入不同的社交圈子。</font></p>
+			<p style="margin: 0 auto; font-size:18px;"><font class="heiti">LIKE</font><font class="yahei">，新的社交体验。</font></p>
+			<div id="download" style="padding: 55px 0 0;"></div>
+			<a class="download-btn"
+				href="https://itunes.apple.com/us/app/skim-for-iphone/idxxxxxx"
+				target="_blank" class="yahei">下载<font class="heiti">iPhone</font>版</a>
+			<div id="iphone-read">
+				<img src="assets/images/qma.jpg" width="200px" height="200px"/>
+				<!-- <div class="separator"></div> -->
+			</div><!-- 
+			<h2 class="dark">不一样的社交体验</h2>
+			方便的管理不同的社交圈子，<br />
+			用更酷的方式发布内容，<br />
+			LIKE，喜欢就分享。<br />
+			<a target="_blank" id="share"
+				onclick='window.open ("http://twitter.com/intent/tweet?text=Like - Conversational Freedom https://tryLike.com via @TryLike https://itunes.apple.com/us/app/skim-for-iphone/id7xxxx",
+				"mywindow","menubar=1,resizable=1,width=500,height=300");'>分享LIKE</a> -->
+		</div>
+	</section>
+	<section id="bottom">
+		<div class="inner">
+			<div id="blocks">
+				<div id="one">
+					<div class="box">
+						<h4><font class="yahei">获取</font><font class="heiti">LIKE</font><font class="yahei">更新通知</font></h4>
+						<div class="inputs">
+							<form action="http://xxxxxx/" method="post" id="updates">
+								<input id="fieldEmail" class="email" name="cm-krft-krft"
+									type="text" placeholder="您的Email" autocorrect="off"
+									autocapitalize="off" />
+								<button type="submit" class="button" id="send"></button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div id="two">
+					<div class="box">
+						<h4 class="yahei">关注我们</h4>
+						<ul>
+							<li>
+									<a href="http://xxxxxx" target="_blank"></a>
+								<div class="icon">
+									<img src="assets/images/weixin_logo.png" alt="微信公众号"/>
+								</div> <span class="yahei" style="font-size:12px;">微信公众号</span>
+							</li>
+							<li>
+									<a href="http://xxxxxx" target="_blank"></a>
+								<div class="icon">
+									<img src="assets/images/weibo.png" alt="官方微博" />
+								</div> <span class="yahei" style="font-size:12px;">官方微博</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="three">
+					<div class="box">
+						<h4><font class="yahei">关于</font><font class="heiti">LIKE</font></h4>
+						<ul>
+							<li>
+									<a href="about"></a>
+								<div class="icon">
+									<img src="assets/images/footer/team.png" alt="团队" />
+								</div> <span style="font-size:12px;"><font class="heiti">LIKE</font><font class="yahei">团队</font></span>
+							</li>
+							<li>
+									<a href="xxxxx"></a>
+								<div class="icon">
+									<img src="assets/images/footer/contact.png" alt="联系我们" />
+								</div> <span class="yahei" style="font-size:12px;">联系我们</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div id="meta">
+				<span class="main yahei">Copyright 2015 &copy;  Shanghai LIKE Technology Co.,Ltd.
+				</span>
+			</div>
+		</div>
+	</section>
+	<div style="display:none;"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254019906'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254019906' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	<script src="assets/js/retina.js" type="text/javascript"></script>
+</body>
+</html>
